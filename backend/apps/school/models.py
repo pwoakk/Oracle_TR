@@ -45,7 +45,7 @@ class Student(models.Model):
     birthdate = models.DateField(default='', blank=True, null=True)
     grade = models.ForeignKey(Grade,
                               on_delete=models.PROTECT,
-                              related_name='pupils',
+                              related_name='students',
                               verbose_name='Класс')
     address = models.CharField('Адресс', max_length=255)
     gender = models.CharField('Пол', max_length=12, choices=GENDER_STATUS, default=GENDER_MALE)
