@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        <div>
+        <h1>Вы действительно хотите удалить "{{ student.last_name }} {{ student.first_name }}"?</h1>
+        </div>
+        <button type="submit" class="btn btn-danger">Удалить</button>
+
+    </form>
+{% endblock %}

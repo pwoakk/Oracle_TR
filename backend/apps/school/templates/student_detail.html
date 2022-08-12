@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card card-primary card-outline">
+    <div class="card-body box-profile">
+        <h3 class="profile-username text-center">{{ student.first_name}} {{ student.middle_name}} {{ student.last_name}}</h3>
+
+        <p class="text-muted text-center">{{ student.birthdate }}</p>
+
+        <div class="card-body">
+            <strong><i class="fas fa-book mr-1"></i>Класс</strong>
+            <p class="text-muted">{{ student.grade }} </p>
+            <hr>
+            <strong><i class="fas fa-book mr-1"></i>Почта</strong>
+            <p class="text-muted">{{ student.email }} </p>
+            <hr>
+            <strong><i class="fas fa-map-marker-alt mr-1"></i>Адрес</strong>
+            <p class="text-muted">{{ student.address }}</p>
+            <hr>
+        </div>
+        <a href="{% url 'student_update' student.id %}"><button type="button" class="btn btn-block bg-gradient-primary">Редактировать</button></a>
+        <hr>
+        <a href="{% url 'student_delete' student.id %}"><button type="button" class="btn btn-block bg-gradient-primary">Удалить</button></a>
+        <hr>
+    </div>
+    <!-- /.card-body -->
+</div>
+{% endblock %}

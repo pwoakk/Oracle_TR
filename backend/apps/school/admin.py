@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from backend.apps.school.models import School, Grade, Subject, Student
+from backend.apps.school.models import School, Grade, Subject, Student, Mailing
 
 
 @admin.register(School)
@@ -10,6 +10,11 @@ class SchoolAdmin(admin.ModelAdmin):
 
 @admin.register(Grade)
 class GradeAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(Mailing)
+class MailingAdmin(admin.ModelAdmin):
     pass
 
 

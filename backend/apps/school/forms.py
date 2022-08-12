@@ -1,7 +1,7 @@
 from django.forms import ModelForm
 from django import forms
 
-from backend.apps.school.models import Student
+from backend.apps.school.models import Student, Mailing
 
 
 class StudentCreateForm(ModelForm):
@@ -52,4 +52,21 @@ class StudentUpdateForm(forms.ModelForm):
             'address': forms.TextInput(attrs={'class': 'form-control'}),
             'email': forms.EmailInput(attrs={'class': 'form-control'}),
             'grade': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Класс'}),
+        }
+
+
+class StudentMailingForm(forms.ModelForm):
+    students = forms.ModelMultipleChoiceField(queryset=Student.objects.all(),)
+                                               # widget=forms.CheckboxSelectMultiple(attrs={'placeholder': 'Исполнитель'}))
+
+    class Meta:
+        model = Mailing
+        fields = [
+            'title',
+            'text',
+            'students',
+        ]
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control'}),
+            'text': forms.TextInput(attrs={'class': 'form-control'}),
         }

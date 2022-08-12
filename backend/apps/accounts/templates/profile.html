@@ -25,28 +25,15 @@
             <!-- Profile Image -->
             <div class="card card-primary card-outline">
               <div class="card-body box-profile">
-                <div class="text-center">
-                    {% if request.user.avatar %}
-                  <img class="profile-user-img img-fluid img-circle"
-                       src="{{ request.user.avatar.url }}"
-                       alt="{{request.user.first_name}} profile picture">
-                    {% else %}
-                     <img class="profile-user-img img-fluid img-circle"
-                       src="{% static '../media/default.png' %}">
-                    {% endif %}
-                </div>
 
                 <h3 class="profile-username text-center">{{ request.user.first_name}} {{ request.user.middle_name}} {{ request.user.last_name}}</h3>
 
-                <p class="text-muted text-center">{{ request.user.phone }}</p>
+                <p class="text-muted text-center"><Учитель></Учитель></p>
 
                 <div class="card-body">
-                    <strong><i class="fas fa-book mr-1"></i>Должность</strong>
-                    <p class="text-muted">{{ request.user.role }} </p>
-                    <hr>
-                    <strong><i class="fas fa-book mr-1"></i>Отдел</strong>
-                    <p class="text-muted">{{ request.user.manager.department.name }} </p>
-                    <p class="text-muted">{{ manager.department.name }} </p>
+                    <strong><i class="fas fa-book mr-1"></i>Предмет</strong>
+                    <p class="text-muted">{{ request.user.subject.name }} </p>
+                    <p class="text-muted">{{ request.user.teacher.subject.name }} </p>
                     <hr>
                     <strong><i class="fas fa-map-marker-alt mr-1"></i>Номер телефона</strong>
                     <p class="text-muted">{{ request.user.phone }}</p>

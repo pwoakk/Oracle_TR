@@ -47,7 +47,7 @@ class Student(models.Model):
                               on_delete=models.PROTECT,
                               related_name='students',
                               verbose_name='Класс')
-    address = models.CharField('Адресс', max_length=255)
+    address = models.CharField('Адрес', max_length=255)
     gender = models.CharField('Пол', max_length=12, choices=GENDER_STATUS, default=GENDER_MALE)
 
     class Meta:
@@ -67,3 +67,17 @@ class Subject(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Mailing(models.Model):
+    title = models.CharField('Название', max_length=250)
+    text = models.TextField('Описание')
+    students = models.ManyToManyField(Student, related_name='mailing', verbose_name='Студенты')
+
+    class Meta:
+        verbose_name = 'Рассылка'
+        verbose_name_plural = 'Рассылки'
+
+    def __str__(self):
+        return self.title
+
